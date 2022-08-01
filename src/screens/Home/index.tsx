@@ -1,25 +1,37 @@
-import { Text, TextInput, View } from 'react-native'
+import { Text, TextInput, View, TouchableOpacity } from 'react-native'
 import { styles } from './styles'
 
 export default function Home() {
+  function handleParticipantAdd() {
+    console.log('oi')
+  }
+
   return (
     <View 
       style={styles.container}
     >
       <Text style={styles.eventName}>
-        Vitor Ricardo Adriano
+        Nome do evento
       </Text>
 
       <Text style={styles.eventDate}>
         React Native
       </Text>
 
-      <TextInput 
-        style={styles.input} 
-        placeholder="Nome do participante"
-        placeholderTextColor="#6B6B6B"
-        keyboardType="numeric" // Sempre que o usuário clicar no input, o teclado que irá aparecer é o numerico.
-      />
+      <View style={styles.form}>
+        <TextInput 
+          style={styles.input} 
+          placeholder="Nome do participante"
+          placeholderTextColor="#6B6B6B"
+          keyboardType="numeric" 
+        />
+
+        <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
+          <Text style={styles.buttonText}>
+            +
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
