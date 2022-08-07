@@ -18,10 +18,11 @@ export default function Home() {
   }
 
   function handleParticipantRemove( name: string ) {
+
     Alert.alert('Remover', `Você realmente deseja remover o usuário ${name} ?`, [
       {
         text: 'Sim',
-        onPress: () => Alert.alert('Deletado!')
+        onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name))
       },
       {
         text: 'Não',
